@@ -128,7 +128,7 @@ def train():
 
         # backprop
         optimizer.zero_grad()
-        loss_l, loss_c, _ = criterion(out, priors, targets)
+        loss_l, loss_c = criterion(out, priors, targets)
         loss = cfg['loc_weight'] * loss_l + loss_c
         loss.backward()
         optimizer.step()
